@@ -24,8 +24,25 @@ con = mysql.connector.connect(
     password="/iJRzrJBz+P1"
 )
 
+
+
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/pusherProductos")
+def pusherProductos() :
+    import pusher
+
+    pusher_client = pusher.Pusher(
+      app_id='2046010',
+      key='6b826780f21a46506065',
+      secret='38280ec8e806716bbb47',
+      cluster='us2',
+      ssl=True
+    )
+    
+    pusher_client.trigger('canalProductos', 'eventoProductos', {'message': 'Hola World'})
+    return make_response(jsonify({}))
 
 @app.route("/")
 def index():
@@ -233,6 +250,7 @@ def eliminarProducto():
     con.close()
 
     return make_response(jsonify({}))
+
 
 
 
