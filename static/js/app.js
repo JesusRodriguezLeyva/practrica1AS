@@ -103,7 +103,7 @@ app.controller("productosCtrl", function ($scope, $http) {
       //alert(JSON.stringify(data));
       buscarProductos()
     });
-    
+
     $(document).on("submit", "#frmProducto", function (event) {
         event.preventDefault()
 
@@ -112,7 +112,7 @@ app.controller("productosCtrl", function ($scope, $http) {
             nombre: $("#txtNombre").val(),
             precio: $("#txtPrecio").val(),
             existencias: $("#txtExistencias").val(),
-        }),
+        })
     })
 
     $(document).on("click", ".btn-ingredientes", function (event) {
@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     activeMenuOption(location.hash)
 })
+
 
 
 
